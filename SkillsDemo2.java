@@ -4,25 +4,27 @@
  */
 
 package com.mycompany.skillsdemo2;
-
+//import the scanner 
 import java.util.Scanner;
+//opens SkillsDemo2 class
 public class SkillsDemo2 {
  
     static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args){
-        boolean keepRunning = true;
-        int choice;
+        boolean keepRunning = true;//the program keeps running when keepRunning is true
+        int choice;//it's the number of the option chosen
         String continueChoice;
         
         System.out.println("Fitness & Health Tracker");
-        
+        //while the keepRunning is true the menu will show up 
         while(keepRunning){
-            printMenu();
+            printMenu();//displays the menu
             System.out.print("Select an option from above(1-10): ");
-            choice =  scanner.nextInt();
-            
+            choice =  scanner.nextInt();//it reads the selected number
+            //checks which menu option the user checked
             switch (choice){
+              //each case runs the interface chosen based on the number typed
                 case 1: 
                     runBmiInterface();
                     break;
@@ -42,8 +44,9 @@ public class SkillsDemo2 {
                case 5:
                    runStepInterface();
                    break;
-
-               
+               case 6:
+                   runCalorieInterface();
+                   break;
 
                case 7:
                    runMacronutrientInterface();
@@ -56,41 +59,46 @@ public class SkillsDemo2 {
                 case 9:
                    runActivityInterface();
                    break;
-             
+                //exits the program 
                 case 10:
                     System.out.println("Thank you for using the Fitness & Health Tracker");
                     System.out.println("The system will shut down now...");
+              //changes the loop condition to stop the programm
                     keepRunning = false;
                     break;
-                    
+                 //prints invalid selection when the user enters an invalid menu option   
                 default:
                     System.out.println("Invalid selection! Please choose 1-10");
                     break;
             }
+         //asks the user if they want to continue
             if (keepRunning){
                 System.out.print("Do you want to continue(Yes/No): ");
                 continueChoice = scanner.next();
                
                 if(continueChoice.equalsIgnoreCase("No")){
-                    
+                    //if the anser is no it stops the program
                     keepRunning = false;
+                 //displays the exit message
                     System.out.println("Thank you for using the Fitness & Health Tracker");
                     System.out.println("The system will shut down now...");
                 } else if(continueChoice.equalsIgnoreCase("Yes")){
-                    System.out.println("Returning to the main menu...");
+                    System.out.println("Returning to the main menu...")
                 }else{
-                    System.out.println("Invalid choice! Returning to the menu...");
+                    System.out.println("Invalid choice! Returning to the menu...");//takes care of any other answer than yes or no
                 }
                 
             }
             
         }
+     //closes the scanner when the program finishes
         scanner.close();
     }//main ends 
     
     //Print Menu
     
     private static void printMenu(){
+     //displays the available pogram options
         System.out.println("1. ----Main Core Interfaces----");
         System.out.println("2. Body Mass Index (BMI) Calculator");
         System.out.println("3. Basal Metabolic Rate Zone Suite");
@@ -104,37 +112,38 @@ public class SkillsDemo2 {
     }
     //BMI Interface
     private static void runBmiInterface(){
+     
         System.out.println("Body Mass Index (BMI) Calculator");
         System.out.println("---------------------------------");
-        
+        //asks the user to enter the weight
         System.out.print("Enter your weight in kg: ");
         double weight = scanner.nextDouble();
-        
+        //asks the user to enter the height
         System.out.print("Enter your height in meters: ");
         double height = scanner.nextDouble();
-        
+        //calls the library to calculate BMI
         String result = StudentErionLibrary.calculateBmi(weight, height);
-        
-        System.out.println("Result: "+ result);
+        //It shows the results 
+        System.out.println("Your BMI is "+ result);
     }
     
     //BMR Interface
     private static void runBmrInterface(){
         System.out.println("Basal Metabolic Rate (BMR) Calculator");
         System.out.println("-------------------------------------");
-        
+        //asks user to enter their age
         System.out.print("Enter age: ");
         int age = scanner.nextInt();
-        
+        //asks the user enter the weight
         System.out.print("Enter weight in kg: ");
         double weight = scanner.nextDouble();
-        
+        //asks the user to enter the height
         System.out.print("Enter height in cm: ");
         double height = scanner.nextDouble();
-        
+        //asks the user to enter the gender
         System.out.print("Enter gender (M/F): ");
         String gender = scanner.next();
-        
+        //calls the library to calculate the BMR
         double result = StudentErionLibrary.calculateBmr(age, weight, height, gender);
         System.out.println("Daily BMR is: "+ result + "calories");
     }
@@ -143,10 +152,10 @@ public class SkillsDemo2 {
     private static void runHeartRaceInterface(){
         System.out.println("Target Heart RAte Zone Matrix");
         System.out.println("------------------------------");
-        
+        //asks the user to enter their age 
         System.out.print("Enter your age: ");
         int age = scanner.nextInt();
-        
+        //calls the library to calculate the Heart Rate Zone Matrix
         String result = StudentErionLibrary.calculateHeartRate(age);
         System.out.println("System Output: "+ result);
     }
