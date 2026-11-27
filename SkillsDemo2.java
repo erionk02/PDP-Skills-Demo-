@@ -184,6 +184,27 @@ public class SkillsDemo2 {
  
         
     }
+  private static void runCalorieInterface(){
+            System.out.println("Caloric Expidenture Evaluator");
+            System.out.println("----------------------------");
+ 
+        // Header
+        System.out.println("Evaluate Caloric Expenditure");
+ 
+        // Asks user for gross calorie intake
+        System.out.print("Enter calorie total gross intake: ");
+        double grossIntake = scanner.nextDouble();
+ 
+        // Asks user for active exercise burn
+        System.out.print("Enter active exercise burn metrics: ");
+        double exerciseBurn = scanner.nextDouble();
+        double netCalories = grossIntake - exerciseBurn;
+ 
+        String status = StudentKevinLibrary.runCalorieInterface(exerciseBurn, grossIntake, exerciseBurn);
+        System.out.printf("System Output: %.0f kcal (%s)%n", netCalories, status);
+ 
+
+    }
         private static void runMacronutrientInterface(){
             System.out.println("Macronutrient Split Matrix");
             System.out.println("----------------------------");
