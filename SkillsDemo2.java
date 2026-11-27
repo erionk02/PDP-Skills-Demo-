@@ -151,18 +151,19 @@ public class SkillsDemo2 {
         System.out.println("System Output: "+ result);
     }
         private static void runStepInterface() {
-        // creates the scanner
+        //creates the scanner
  
-        // title 
+        //Displays the title
         System.out.println("Convert Steps to Distance");
  
-        // asks user to enter steps
+        //asks user to enter steps
         System.out.print("Enter tracked step counts: ");
         int steps = scanner.nextInt();
  
-        // asks user to enter stride length
+        //asks user to enter stride length
         System.out.print("Enter average stride length in meters : ");
         double strideLength = scanner.nextDouble();
+        //To calculate the distance in km
         double distanceKm = StudentKevinLibrary.runStepInterface(steps, strideLength);
         System.out.printf("System Output: %.2f Kilometers%n", distanceKm);
  
@@ -178,13 +179,15 @@ public class SkillsDemo2 {
         // asks the user to enter volume
         System.out.print("Enter current dynamic intake volume (ml): ");
         double currentVolume = scanner.nextDouble();
- 
+        //To calculate the hydration percentage
         double percentage = StudentKevinLibrary.runHydrationIntakeInterface( targetVolume, currentVolume);
+        //Displays the final hydration percentage
         System.out.printf("System Output: %.0f%% Achieved%n", percentage);
  
         
     }
   private static void runCalorieInterface(){
+            //Prints the title 
             System.out.println("Caloric Expidenture Evaluator");
             System.out.println("----------------------------");
  
@@ -198,9 +201,11 @@ public class SkillsDemo2 {
         // Asks user for active exercise burn
         System.out.print("Enter active exercise burn metrics: ");
         double exerciseBurn = scanner.nextDouble();
+        //Calculates the net calories
         double netCalories = grossIntake - exerciseBurn;
- 
+        //Calls the library method to check calorie status
         String status = StudentKevinLibrary.runCalorieInterface(exerciseBurn, grossIntake, exerciseBurn);
+        //Displays the final net calories and status
         System.out.printf("System Output: %.0f kcal (%s)%n", netCalories, status);
  
 
