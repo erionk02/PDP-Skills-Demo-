@@ -219,13 +219,17 @@ public class SkillsDemo2 {
  
 
     }
+
+        // Runs the Macronutrient Split Matrix function
         private static void runMacronutrientInterface(){
             System.out.println("Macronutrient Split Matrix");
             System.out.println("----------------------------");
-            
+
+            // Collect the daily calorie target
             System.out.print("Enter your target calories: ");
             double calories = scanner.nextDouble();
-            
+
+            // Collect the percentage of calories for each macronutrient
             System.out.print("Enter protein percentage: ");
             double proteinPercentage = scanner.nextDouble();
             
@@ -234,32 +238,45 @@ public class SkillsDemo2 {
             
             System.out.print("Enter fat percentage: ");
             double fatPercentage = scanner.nextDouble();
-            
+
+            // Calculation is handled by the library class
             String result = StudentDamianLibrary.runMacronutrientInterface(calories, proteinPercentage, carbPercentage, fatPercentage);
             System.out.println("System Output: "+ result);
         }
-        
+
+        // Run the Sleep Efficiency Evaluator Function
         private static void runSleepInterface(){
             System.out.println("Sleep Efficienty Evaluator");
             System.out.println("------------------------------");
+
+            // Hours can be a decimal ( e.g 7.5)
             System.out.print("Enter how many hours you slept: ");
             double hours = scanner.nextDouble();
+
+            // Wake disruptions must be a whole number
             System.out.print("Enter wake disruptions counts: ");
             int wakeups = scanner.nextInt();
-            
+
+            // Evaluation is handled by the library
             String result = StudentDamianLibrary.runSleepInterface(hours, wakeups);
             System.out.println("System output: "+ result);
         }
-        
+
+        // Runs the Activity Intensity Scaling Factor Function
         private static void runActivityInterface(){
             System.out.println("Activity Intensity Scaling Factor");
             System.out.println("-------------------------------------");
+
+            //Collect the Basal Metabloic Rate (calories burned at rest)
             System.out.print("Enter baseline metabolic metric (BMR): ");
             double bmr = scanner.nextDouble();
+
+            // Show the accepted activity multipliers, then collect the chosen one
             System.out.println("Dynamic scalar options: Sedentary(1.2), Light(1.375), Active(1.55)");
             System.out.print("Enter floating scalar factor: ");
             double factor = scanner.nextDouble();
-            
+
+            // Library method expects factor first, then BMR
             String result = StudentDamianLibrary.runActivityInterface(factor, bmr);
             System.out.println("System Output: "+ result);
         }
