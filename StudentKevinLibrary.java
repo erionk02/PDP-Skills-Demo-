@@ -31,9 +31,9 @@ public class StudentKevinLibrary {
         //stores the calorie status
         String status;
      //checks if net calories are under, over or balanced
-        if (netCalories < 0) {
+        if (netCalories > 0) {
             status = "Deficit";
-        } else if (netCalories > 0) {
+        } else if (netCalories < 0) {
             status = "Surplus";
         } else {
             status = "Maintenance";
